@@ -1,0 +1,1688 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flipp Renew — Make Your Phone Feel New Again</title>
+  <meta name="description"
+    content="Premium device restoration in Suriname. Detailing, battery and screen renewal, and performance care that makes your phone feel new again — for a fraction of the cost of replacing it." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ============ TOKENS ============ */
+    :root {
+      --ink: #0D0D0D;
+      --ink-2: #141210;
+      --ink-3: #1B1814;
+      --ink-4: #231F19;
+      --line: rgba(200, 169, 107, .16);
+      --line-soft: rgba(255, 255, 255, .07);
+      --gold: #C8A96B;
+      --gold-hi: #ECD6A4;
+      --gold-lo: #9A7F4A;
+      --white: #FFFFFF;
+      --mist: #C5BEB1;
+      --mist-dim: #8C857A;
+      --gold-grad: linear-gradient(135deg, var(--gold-hi) 0%, var(--gold) 42%, var(--gold-lo) 100%);
+      --shine: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, .35) 47%, rgba(255, 255, 255, .55) 50%, transparent 66%);
+      --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --maxw: 1180px;
+      --r: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior: auto
+      }
+    }
+
+    body {
+      background: var(--ink);
+      color: var(--mist);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%
+    }
+
+    ::selection {
+      background: var(--gold);
+      color: var(--ink)
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 28px
+    }
+
+    .eyebrow {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: .6em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: var(--gold);
+      opacity: .6
+    }
+
+    .serif {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 600;
+      background: var(--gold-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* ============ BUTTONS ============ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .55em;
+      font-weight: 600;
+      font-size: .96rem;
+      letter-spacing: .01em;
+      padding: .92em 1.6em;
+      border-radius: 100px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform .25s, box-shadow .3s, background .3s, color .3s, border-color .3s;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px
+    }
+
+    .btn-gold {
+      background: var(--gold-grad);
+      color: #1a1408;
+      box-shadow: 0 8px 30px -10px rgba(200, 169, 107, .55)
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px -10px rgba(200, 169, 107, .7)
+    }
+
+    .btn-ghost {
+      border-color: var(--line);
+      color: var(--white);
+      background: rgba(255, 255, 255, .02)
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px)
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 6px
+    }
+
+    /* ============ HEADER ============ */
+    header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      transition: background .35s, border-color .35s, backdrop-filter .35s
+    }
+
+    header.scrolled {
+      background: rgba(13, 13, 13, .78);
+      backdrop-filter: blur(16px) saturate(140%);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 74px
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .7rem
+    }
+
+    .brand .mark {
+      width: 34px;
+      height: 34px;
+      flex: none
+    }
+
+    .brand .name {
+      font-size: 1.18rem;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      color: var(--white);
+      line-height: 1
+    }
+
+    .brand .name .re {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 600;
+      font-size: 1.28rem;
+      color: var(--gold);
+      margin-left: .12em
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 2.1rem;
+      font-size: .95rem;
+      font-weight: 500
+    }
+
+    .menu a {
+      color: var(--mist);
+      transition: color .2s;
+      position: relative
+    }
+
+    .menu a:hover {
+      color: var(--white)
+    }
+
+    .menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      height: 1px;
+      width: 0;
+      background: var(--gold);
+      transition: width .25s
+    }
+
+    .menu a:hover::after {
+      width: 100%
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem
+    }
+
+    .burger {
+      display: none;
+      background: none;
+      border: 0;
+      color: var(--white);
+      cursor: pointer;
+      padding: 8px
+    }
+
+    .menu-cta {
+      display: none
+    }
+
+    /* ============ HERO ============ */
+    .hero {
+      position: relative;
+      padding: 160px 0 90px;
+      overflow: hidden
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: -10%;
+      right: -8%;
+      width: 680px;
+      height: 680px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200, 169, 107, .20), transparent 62%);
+      filter: blur(20px);
+      z-index: 0;
+      pointer-events: none
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 56px;
+      align-items: center
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 5.6vw, 4.6rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -.025em;
+      color: var(--white);
+      margin: 1.1rem 0 1.3rem
+    }
+
+    .hero h1 .serif {
+      font-size: 1.06em;
+      letter-spacing: -.01em;
+      display: inline-block
+    }
+
+    .hero p.sub {
+      font-size: 1.12rem;
+      color: var(--mist);
+      max-width: 30ch;
+      margin-bottom: 2rem
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: .9rem;
+      flex-wrap: wrap
+    }
+
+    .trustbar {
+      margin-top: 2.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem 1.8rem;
+      padding-top: 1.7rem;
+      border-top: 1px solid var(--line-soft)
+    }
+
+    .trustbar span {
+      display: inline-flex;
+      align-items: center;
+      gap: .5em;
+      font-size: .84rem;
+      color: var(--mist-dim);
+      font-weight: 500
+    }
+
+    .trustbar span svg {
+      width: 15px;
+      height: 15px;
+      color: var(--gold);
+      flex: none
+    }
+
+    /* hero device visual */
+    .device-stage {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 440px;
+    }
+
+    .device-stage .ring {
+      position: absolute;
+      width: 430px;
+      height: 430px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+    }
+
+    .device-stage .ring.r2 {
+      width: 330px;
+      height: 330px;
+      border-color: var(--line-soft)
+    }
+
+    .device-stage video,
+    .device-stage canvas {
+      position: relative;
+      z-index: 1;
+      width: 480px;
+      height: 480px;
+      pointer-events: none
+    }
+
+    .device-stage video.hidden,
+    .device-stage canvas.hidden {
+      display: none
+    }
+
+    /* ============ SECTION SHELL ============ */
+    section {
+      position: relative;
+      padding: 96px 0
+    }
+
+    .sec-head {
+      max-width: 680px;
+      margin-bottom: 54px
+    }
+
+    .sec-head h2 {
+      font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -.022em;
+      color: var(--white);
+      margin: .9rem 0 1rem
+    }
+
+    .sec-head p {
+      font-size: 1.06rem;
+      color: var(--mist)
+    }
+
+    /* ============ WHY ============ */
+    .why {
+      background: var(--ink-2);
+      border-top: 1px solid var(--line-soft);
+      border-bottom: 1px solid var(--line-soft)
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px
+    }
+
+    .feature {
+      padding: 30px;
+      border: 1px solid var(--line-soft);
+      border-radius: var(--r);
+      background: var(--ink-3);
+      transition: border-color .3s, transform .3s
+    }
+
+    .feature:hover {
+      border-color: var(--line);
+      transform: translateY(-3px)
+    }
+
+    .feature .ic {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      background: rgba(200, 169, 107, .1);
+      border: 1px solid var(--line)
+    }
+
+    .feature .ic svg {
+      width: 22px;
+      height: 22px;
+      color: var(--gold)
+    }
+
+    .feature h3 {
+      font-size: 1.16rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .5rem;
+      letter-spacing: -.01em
+    }
+
+    .feature p {
+      font-size: .97rem;
+      color: var(--mist-dim)
+    }
+
+    /* ============ SERVICES ============ */
+    .tiers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: start
+    }
+
+    .tier {
+      position: relative;
+      padding: 34px 30px;
+      border: 1px solid var(--line-soft);
+      border-radius: var(--r);
+      background: linear-gradient(180deg, var(--ink-3), var(--ink-2));
+      transition: transform .3s, border-color .3s, box-shadow .3s
+    }
+
+    .tier:hover {
+      transform: translateY(-4px);
+      border-color: var(--line)
+    }
+
+    .tier.feat {
+      border-color: var(--gold);
+      background: linear-gradient(180deg, rgba(200, 169, 107, .07), var(--ink-2));
+      box-shadow: 0 30px 70px -34px rgba(200, 169, 107, .4)
+    }
+
+    .tier .flag {
+      position: absolute;
+      top: -12px;
+      left: 30px;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #1a1408;
+      background: var(--gold-grad);
+      padding: .42em .9em;
+      border-radius: 100px
+    }
+
+    .tier .tname {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 600;
+      font-size: 1.85rem;
+      color: var(--white);
+      line-height: 1
+    }
+
+    .tier .tname b {
+      font-style: normal;
+      font-family: var(--sans);
+      font-weight: 800
+    }
+
+    .tier .tdesc {
+      font-size: .92rem;
+      color: var(--mist-dim);
+      margin: .7rem 0 1.2rem;
+      min-height: 2.6em
+    }
+
+    .tier .price {
+      font-size: .95rem;
+      color: var(--gold);
+      font-weight: 600;
+      padding-bottom: 1.2rem;
+      margin-bottom: 1.2rem;
+      border-bottom: 1px solid var(--line-soft)
+    }
+
+    .tier .price b {
+      font-size: 1.7rem;
+      color: var(--white);
+      font-weight: 800
+    }
+
+    .tier ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+      margin-bottom: 1.7rem
+    }
+
+    .tier li {
+      display: flex;
+      gap: .65em;
+      font-size: .94rem;
+      color: var(--mist)
+    }
+
+    .tier li svg {
+      width: 17px;
+      height: 17px;
+      color: var(--gold);
+      flex: none;
+      margin-top: .2em
+    }
+
+    .tier li.inc {
+      color: var(--mist-dim);
+      font-weight: 500
+    }
+
+    .tier .btn {
+      width: 100%;
+      justify-content: center
+    }
+
+    /* ============ RESULTS / BEFORE-AFTER ============ */
+    .results {
+      background: var(--ink-2);
+      border-top: 1px solid var(--line-soft)
+    }
+
+    .ba-row {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 48px;
+      align-items: center
+    }
+
+    .ba {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: var(--r);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      user-select: none;
+      touch-action: none;
+      cursor: ew-resize;
+      box-shadow: 0 40px 80px -40px rgba(0, 0, 0, .8)
+    }
+
+    .ba .pane {
+      position: absolute;
+      inset: 0;
+      overflow: hidden
+    }
+
+    .ba .after {
+      background: var(--ink-2)
+    }
+
+    .ba .before {
+      background: var(--ink-2);
+      clip-path: inset(0 0 0 var(--pos, 50%))
+    }
+
+    .ba .pane img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      position: absolute;
+      inset: 0
+    }
+
+    .ba .lbl {
+      position: absolute;
+      bottom: 16px;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      padding: .4em .8em;
+      border-radius: 100px;
+      backdrop-filter: blur(6px)
+    }
+
+    .ba .after .lbl {
+      right: 16px;
+      color: #1a1408;
+      background: var(--gold-grad)
+    }
+
+    .ba .before .lbl {
+      left: 16px;
+      color: var(--mist);
+      background: rgba(0, 0, 0, .55);
+      border: 1px solid var(--line-soft)
+    }
+
+    .ba .handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--pos, 50%);
+      width: 2px;
+      background: var(--gold);
+      transform: translateX(-1px);
+      z-index: 3;
+      pointer-events: none
+    }
+
+    .ba .grip {
+      position: absolute;
+      top: 50%;
+      left: var(--pos, 50%);
+      transform: translate(-50%, -50%);
+      z-index: 4;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gold-grad);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 6px 20px -4px rgba(200, 169, 107, .7);
+      cursor: ew-resize;
+      color: #1a1408
+    }
+
+    .ba .grip svg {
+      width: 22px;
+      height: 22px
+    }
+
+    .ba .grip:focus-visible {
+      outline: 2px solid var(--white);
+      outline-offset: 3px
+    }
+
+    /* stylized device inside panes */
+    .mini {
+      width: 46%;
+      max-width: 170px;
+      aspect-ratio: 1/2;
+      border-radius: 26px;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, .12);
+      overflow: hidden
+    }
+
+    .mini.dirty {
+      background: linear-gradient(160deg, #2a2a28, #1c1c1a);
+      filter: saturate(.4) brightness(.8)
+    }
+
+    .mini.clean {
+      background: linear-gradient(150deg, #322b1f, #15120d);
+      border-color: rgba(200, 169, 107, .45);
+      box-shadow: 0 0 0 1px rgba(200, 169, 107, .2), 0 20px 50px -20px rgba(200, 169, 107, .4)
+    }
+
+    .mini .scr {
+      position: absolute;
+      inset: 6px;
+      border-radius: 20px
+    }
+
+    .mini.dirty .scr {
+      background: #171717
+    }
+
+    .mini.clean .scr {
+      background: radial-gradient(110% 80% at 30% 12%, #2a251c, #0c0b08)
+    }
+
+    .mini.dirty .crack {
+      position: absolute;
+      inset: 6px;
+      border-radius: 20px;
+      background:
+        linear-gradient(42deg, transparent 48%, rgba(255, 255, 255, .18) 49%, transparent 50%),
+        linear-gradient(-18deg, transparent 60%, rgba(255, 255, 255, .12) 61%, transparent 62%)
+    }
+
+    .mini.dirty .dust {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .22)
+    }
+
+    .mini.clean .spark {
+      position: absolute;
+      color: var(--gold-hi)
+    }
+
+    .ba-copy h2 {
+      margin-top: .9rem
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin-top: 1.7rem
+    }
+
+    .chip {
+      font-size: .83rem;
+      font-weight: 500;
+      color: var(--mist);
+      padding: .55em 1em;
+      border-radius: 100px;
+      border: 1px solid var(--line);
+      background: rgba(200, 169, 107, .05);
+      display: inline-flex;
+      align-items: center;
+      gap: .5em
+    }
+
+    .chip svg {
+      width: 13px;
+      height: 13px;
+      color: var(--gold)
+    }
+
+    .note {
+      font-size: .82rem;
+      color: var(--mist-dim);
+      margin-top: 1.4rem;
+      font-style: italic
+    }
+
+    /* ============ PROCESS ============ */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0
+    }
+
+    .step {
+      position: relative;
+      padding: 28px 24px 28px 0
+    }
+
+    .step:not(:nth-child(4n))::after {
+      content: "";
+      position: absolute;
+      top: 42px;
+      right: 18px;
+      left: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--line), transparent)
+    }
+
+    .step .num {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 2.6rem;
+      font-weight: 600;
+      line-height: 1;
+      background: var(--gold-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem
+    }
+
+    .step h3 {
+      font-size: 1.04rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .4rem;
+      letter-spacing: -.01em
+    }
+
+    .step p {
+      font-size: .9rem;
+      color: var(--mist-dim)
+    }
+
+    /* ============ BOOK ============ */
+    .book {
+      background: var(--ink-2);
+      border-top: 1px solid var(--line-soft)
+    }
+
+    .book-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(160deg, var(--ink-3), var(--ink-2))
+    }
+
+    .book-info {
+      padding: 48px 44px;
+      border-right: 1px solid var(--line-soft)
+    }
+
+    .book-info h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -.02em;
+      line-height: 1.1;
+      margin: .9rem 0 1rem
+    }
+
+    .book-info h2 .serif {
+      font-size: 1.05em
+    }
+
+    .book-info p {
+      color: var(--mist);
+      margin-bottom: 1.8rem
+    }
+
+    .contact-line {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      font-size: .96rem;
+      color: var(--mist);
+      margin-bottom: 1rem
+    }
+
+    .contact-line svg {
+      width: 18px;
+      height: 18px;
+      color: var(--gold);
+      flex: none
+    }
+
+    .form {
+      padding: 44px
+    }
+
+    .field {
+      margin-bottom: 16px
+    }
+
+    .field label {
+      display: block;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      color: var(--mist);
+      margin-bottom: .5em;
+      text-transform: uppercase
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      padding: .85em 1em;
+      border-radius: 12px;
+      border: 1px solid var(--line-soft);
+      background: var(--ink);
+      color: var(--white);
+      font-family: inherit;
+      font-size: .98rem;
+      transition: border-color .2s
+    }
+
+    .field input::placeholder {
+      color: var(--mist-dim)
+    }
+
+    .field input:focus,
+    .field select:focus {
+      outline: none;
+      border-color: var(--gold)
+    }
+
+    .field select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%23C8A96B' stroke-width='2'%3E%3Cpath d='M3 5l4 4 4-4'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1em center
+    }
+
+    .form .btn {
+      width: 100%;
+      justify-content: center;
+      margin-top: 6px
+    }
+
+    .form-msg {
+      display: none;
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      font-size: .92rem;
+      background: rgba(200, 169, 107, .1);
+      border: 1px solid var(--gold);
+      color: var(--gold-hi)
+    }
+
+    .form-msg.show {
+      display: block
+    }
+
+    /* ============ FOOTER ============ */
+    footer {
+      padding: 64px 0 36px;
+      border-top: 1px solid var(--line-soft)
+    }
+
+    .foot-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--line-soft)
+    }
+
+    .foot-brand {
+      max-width: 320px
+    }
+
+    .foot-brand .tag {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.35rem;
+      color: var(--gold);
+      margin: 1rem 0 .6rem
+    }
+
+    .foot-brand p {
+      font-size: .92rem;
+      color: var(--mist-dim)
+    }
+
+    .foot-cols {
+      display: flex;
+      gap: 64px;
+      flex-wrap: wrap
+    }
+
+    .foot-col h4 {
+      font-size: .74rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--mist-dim);
+      margin-bottom: 1.1rem;
+      font-weight: 600
+    }
+
+    .foot-col a {
+      display: block;
+      font-size: .95rem;
+      color: var(--mist);
+      margin-bottom: .7rem;
+      transition: color .2s
+    }
+
+    .foot-col a:hover {
+      color: var(--gold)
+    }
+
+    .foot-bot {
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: .83rem;
+      color: var(--mist-dim)
+    }
+
+    /* ============ REVEAL ============ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .7s cubic-bezier(.2, .7, .2, 1), transform .7s cubic-bezier(.2, .7, .2, 1)
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none
+      }
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width:900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px
+      }
+
+      .device-stage {
+        order: -1;
+        min-height: 300px;
+      }
+
+      .device-stage .ring {
+        width: 280px;
+        height: 280px
+      }
+
+      .device-stage .ring.r2 {
+        width: 210px;
+        height: 210px
+      }
+
+      .device-stage video,
+      .device-stage canvas {
+        width: 320px;
+        height: 320px
+      }
+
+      .feature-grid,
+      .tiers {
+        grid-template-columns: 1fr
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .step:not(:nth-child(4n))::after {
+        display: none
+      }
+
+      .ba-row {
+        grid-template-columns: 1fr;
+        gap: 32px
+      }
+
+      .ba {
+        aspect-ratio: 3/4
+      }
+
+      .book-card {
+        grid-template-columns: 1fr
+      }
+
+      .book-info {
+        border-right: 0;
+        border-bottom: 1px solid var(--line-soft)
+      }
+
+      .menu {
+        display: none
+      }
+
+      .burger {
+        display: block
+      }
+
+      .nav-cta .btn-ghost,
+      .nav-cta .btn-gold {
+        display: none
+      }
+
+      .menu-cta {
+        display: inline-flex
+      }
+
+      .menu.open {
+        display: flex;
+        position: absolute;
+        top: 74px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 1.4rem;
+        padding: 28px;
+        background: rgba(13, 13, 13, .97);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--line)
+      }
+    }
+
+    @media (max-width:560px) {
+      body {
+        font-size: 16px
+      }
+
+      .wrap {
+        padding: 0 20px
+      }
+
+      .hero {
+        padding: 128px 0 70px
+      }
+
+      section {
+        padding: 72px 0
+      }
+
+      .steps {
+        grid-template-columns: 1fr
+      }
+
+      .form,
+      .book-info {
+        padding: 32px 26px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header id="hdr">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Flipp Renew home">
+        <svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ECD6A4" />
+              <stop offset=".5" stop-color="#C8A96B" />
+              <stop offset="1" stop-color="#9A7F4A" />
+            </linearGradient>
+          </defs>
+          <rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="url(#g1)" stroke-width="1.6" />
+          <path d="M11 12h18M20 12v17M14.5 18c0-2.4 2-3.6 5.5-3.6s5.5 1.2 5.5 3.6" fill="none" stroke="url(#g1)"
+            stroke-width="2.4" stroke-linecap="round" />
+        </svg>
+        <span class="name">Flipp<span class="re">renew</span></span>
+      </a>
+      <nav class="menu" id="menu" aria-label="Primary">
+        <a class="btn btn-gold menu-cta" href="#book">Book a refresh</a>
+        <a href="#why">Why us</a>
+        <a href="#services">Services</a>
+        <a href="#results">Results</a>
+        <a href="#process">Process</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="#services">View services</a>
+        <a class="btn btn-gold" href="#book">Book a refresh</a>
+        <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 6h18M3 12h18M3 18h18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow reveal">Professional device restoration</span>
+          <h1 class="reveal">Make your phone<br>feel <span class="serif">new</span> again.</h1>
+          <p class="sub reveal">Premium detailing, battery and screen renewal, and performance care — designed to extend
+            the life of the device you already love.</p>
+          <div class="hero-actions reveal">
+            <a class="btn btn-gold" href="#book">Book a device refresh
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 8h10M9 4l4 4-4 4" />
+              </svg></a>
+            <a class="btn btn-ghost" href="#services">View services</a>
+          </div>
+          <div class="trustbar reveal">
+            <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="8" cy="8" r="6.5" />
+                <path d="M8 4.5V8l2.5 1.5" />
+              </svg>Same-day service</span>
+            <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M8 1.5l5.5 2.5v4c0 3.4-2.4 5.6-5.5 6.5C4.9 13.6 2.5 11.4 2.5 8V4z" />
+              </svg>Quality parts</span>
+            <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2.5 8.5l3.5 3.5 7.5-8" />
+              </svg>Honest advice</span>
+            <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="2" width="8" height="12" rx="2" />
+                <path d="M7 4h2" />
+              </svg>Professional care</span>
+          </div>
+        </div>
+        <div class="device-stage" aria-hidden="true">
+          <div class="ring"></div>
+          <div class="ring r2"></div>
+          <video id="hero-vid" autoplay loop muted playsinline>
+            <source src="hero-phone.webm" type="video/webm">
+          </video>
+          <canvas id="hero-canvas" class="hidden" width="400" height="400"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHY ============ -->
+    <section class="why" id="why">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="eyebrow">Why Flipp Renew</span>
+          <h2>Device care that respects<br>your time — and your wallet.</h2>
+          <p>We don't just repair devices. We restore them. From deep cleaning and battery renewal to screen work and
+            performance tuning, we help your phone look, feel and perform like new — without the cost of replacing it.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature reveal">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg></div>
+            <h3>Professional device handling</h3>
+            <p>Your phone is treated like the valuable object it is — inspected, documented, and serviced with care from
+              check-in to return.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3.5 2" />
+              </svg></div>
+            <h3>Built around your schedule</h3>
+            <p>Same-day turnaround on most services, so you're rarely without the device you rely on every day.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg></div>
+            <h3>Results you can see &amp; feel</h3>
+            <p>Cleaner audio, faster response, a brighter screen, a battery that lasts. The difference is obvious the
+              moment you hold it.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 3v18M5 8h14M7 21h10" />
+                <path d="M5 8l-2 5a4 4 0 008 0zM19 8l-2 5a4 4 0 008 0z" />
+              </svg></div>
+            <h3>Honest advice. No pressure.</h3>
+            <p>If a renewal makes sense, we'll tell you. If it doesn't, we'll tell you that too. Always straight, never
+              a hard sell.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section id="services">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="eyebrow">Our services</span>
+          <h2>Three levels of renewal.<br>One feeling: <span class="serif">like new</span>.</h2>
+          <p>Start with a clean-up, or go all the way to a full restoration. Every tier ends with an inspection report
+            so you know exactly what was done.</p>
+        </div>
+        <div class="tiers">
+          <div class="tier reveal">
+            <div class="tname"><b>Refresh</b></div>
+            <p class="tdesc">Premium detailing that restores the look, feel and hygiene of your device.</p>
+            <div class="price">from <b>SRD 300</b></div>
+            <ul>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9.5l3.5 3.5L15 5" />
+                </svg>Speaker &amp; mic cleaning</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9.5l3.5 3.5L15 5" />
+                </svg>Charging port restoration</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9.5l3.5 3.5L15 5" />
+                </svg>Full exterior detailing</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9.5l3.5 3.5L15 5" />
+                </svg>Device sanitization</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9.5l3.5 3.5L15 5" />
+                </svg>Inspection report</li>
+            </ul>
+            <a class="btn btn-ghost" href="#book">Choose Refresh</a>
+          </div>
+
+          <div class="tier feat reveal">
+            <span class="flag">Most popular</span>
+            <div class="tname"><b>Renew</b></div>
+            <p class="tdesc">Everything in Refresh, plus the care that brings performance back to life.</p>
+            <div class="price">priced after <b>inspection</b></div>
+            <ul>
+              <li class="inc"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9.5l3.5 3.5L15 5" />
+                </svg>Everything in Refresh</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9.5l3.5 3.5L15 5" />
+                </svg>Premium screen protector</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9.5l3.5 3.5L15 5" />
+                </svg>Battery health analysis</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9.5l3.5 3.5L15 5" />
+                </svg>Performance optimization</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9.5l3.5 3.5L15 5" />
+                </svg>Full device tune-up</li>
+            </ul>
+            <a class="btn btn-gold" href="#book">Choose Renew</a>
+          </div>
+
+          <div class="tier reveal">
+            <div class="tname"><b>Reborn</b></div>
+            <p class="tdesc">A complete restoration that brings your device as close to new as possible.</p>
+            <div class="price">priced after <b>inspection</b></div>
+            <ul>
+              <li class="inc"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9.5l3.5 3.5L15 5" />
+                </svg>Everything in Renew</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9.5l3.5 3.5L15 5" />
+                </svg>Battery replacement</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9.5l3.5 3.5L15 5" />
+                </svg>Screen replacement</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9.5l3.5 3.5L15 5" />
+                </svg>Housing restoration</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9.5l3.5 3.5L15 5" />
+                </svg>Major repair work</li>
+            </ul>
+            <a class="btn btn-ghost" href="#book">Choose Reborn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESULTS / BEFORE-AFTER ============ -->
+    <section class="results" id="results">
+      <div class="wrap ba-row">
+        <div class="ba-copy reveal">
+          <span class="eyebrow">Real results</span>
+          <h2>Why replace it when<br>you can <span class="serif">renew</span> it?</h2>
+          <p>Most people think a tired phone means a new phone. Usually, it just means it hasn't been cared for. Drag
+            the handle to see the difference restoration makes.</p>
+          <div class="chips">
+            <span class="chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="8" cy="8" r="6" />
+              </svg>Speaker restoration</span>
+            <span class="chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="8" cy="8" r="6" />
+              </svg>Charging port</span>
+            <span class="chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="8" cy="8" r="6" />
+              </svg>Screen renewal</span>
+            <span class="chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="8" cy="8" r="6" />
+              </svg>Battery renewal</span>
+            <span class="chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="8" cy="8" r="6" />
+              </svg>Full detailing</span>
+          </div>
+          <p class="note">Real device photos — more transformations added as devices are serviced.
+          </p>
+        </div>
+
+        <div class="ba reveal" id="ba" style="--pos:50%">
+          <div class="pane after">
+            <img src="ba-after.jpg" alt="Device after restoration">
+            <span class="lbl">After</span>
+          </div>
+          <div class="pane before">
+            <img src="ba-before.png" alt="Device before restoration">
+            <span class="lbl">Before</span>
+          </div>
+          <div class="handle"></div>
+          <div class="grip" id="grip" role="slider" tabindex="0" aria-label="Before and after comparison"
+            aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+              <path d="M9 6l-4 6 4 6M15 6l4 6-4 6" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section id="process">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="eyebrow">The experience</span>
+          <h2>A service that feels<br>more like a spa than a shop.</h2>
+          <p>Every device follows the same careful path — closer to a luxury watch servicing than a corner repair
+            counter.</p>
+        </div>
+        <div class="steps">
+          <div class="step reveal">
+            <div class="num">01</div>
+            <h3>Check-in</h3>
+            <p>Your device is logged, and your concerns are noted before anything is touched.</p>
+          </div>
+          <div class="step reveal">
+            <div class="num">02</div>
+            <h3>Inspection</h3>
+            <p>A full diagnostic of screen, battery, ports, audio and housing.</p>
+          </div>
+          <div class="step reveal">
+            <div class="num">03</div>
+            <h3>Before photos</h3>
+            <p>We document the starting condition so the transformation is undeniable.</p>
+          </div>
+          <div class="step reveal">
+            <div class="num">04</div>
+            <h3>Restoration</h3>
+            <p>Your chosen service is carried out with professional tools and quality parts.</p>
+          </div>
+          <div class="step reveal">
+            <div class="num">05</div>
+            <h3>Quality control</h3>
+            <p>Every function is tested and re-tested before the device leaves the bench.</p>
+          </div>
+          <div class="step reveal">
+            <div class="num">06</div>
+            <h3>Device report</h3>
+            <p>A clear summary of what we found, what we did, and what to watch.</p>
+          </div>
+          <div class="step reveal">
+            <div class="num">07</div>
+            <h3>Return</h3>
+            <p>You collect a device that looks, feels and performs like new again.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BOOK ============ -->
+    <section class="book" id="book">
+      <div class="wrap">
+        <div class="book-card reveal">
+          <div class="book-info">
+            <span class="eyebrow">Book your visit</span>
+            <h2>Restore. Refresh.<br><span class="serif">Reconnect.</span></h2>
+            <p>Tell us about your device and we'll confirm your appointment and a no-obligation estimate. Most refreshes
+              are done the same day.</p>
+            <!-- TODO: replace with real Flipp Renew contact details -->
+            <div class="contact-line"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M4 4h12l-1 5a8 8 0 01-5 5 8 8 0 01-5-5z" />
+                <path d="M2 18a8 8 0 0116 0" />
+              </svg>Paramaribo, Suriname</div>
+            <div class="contact-line"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M4 4h4l1.5 4-2 1.5a9 9 0 004 4l1.5-2 4 1.5v4a1 1 0 01-1 1A14 14 0 013 5a1 1 0 011-1z" />
+              </svg>+597 854 2711</div>
+            <div class="contact-line"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2.5" y="4" width="15" height="12" rx="2" />
+                <path d="M3 5l7 5 7-5" />
+              </svg>hello@flipprenew.sr</div>
+          </div>
+          <div class="form">
+            <div class="field"><label for="f-name">Your name</label><input id="f-name" type="text"
+                placeholder="Full name" autocomplete="name"></div>
+            <div class="field"><label for="f-phone">Phone / WhatsApp</label><input id="f-phone" type="tel"
+                placeholder="+597 ..." autocomplete="tel"></div>
+            <div class="field"><label for="f-device">Device</label><input id="f-device" type="text"
+                placeholder="e.g. iPhone 13, Samsung S22"></div>
+            <div class="field"><label for="f-service">Service</label>
+              <select id="f-service">
+                <option>Phone Refresh — detailing</option>
+                <option>Phone Renew — performance care</option>
+                <option>Phone Reborn — full restoration</option>
+                <option>Not sure — recommend for me</option>
+              </select>
+            </div>
+            <button class="btn btn-gold" id="submit" type="button">Book via WhatsApp
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 8h10M9 4l4 4-4 4" />
+              </svg></button>
+            <div class="form-msg" id="formMsg"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a class="brand" href="#top" aria-label="Flipp Renew home">
+            <svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
+              <rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="url(#g1)" stroke-width="1.6" />
+              <path d="M11 12h18M20 12v17M14.5 18c0-2.4 2-3.6 5.5-3.6s5.5 1.2 5.5 3.6" fill="none" stroke="url(#g1)"
+                stroke-width="2.4" stroke-linecap="round" />
+            </svg>
+            <span class="name">Flipp<span class="re">renew</span></span>
+          </a>
+          <div class="tag">Restore. Refresh. Reconnect.</div>
+          <p>Premium device restoration in Suriname. Before you spend on a new phone, let us renew the one you already
+            love.</p>
+        </div>
+        <div class="foot-cols">
+          <div class="foot-col">
+            <h4>Services</h4>
+            <a href="#services">Phone Refresh</a>
+            <a href="#services">Phone Renew</a>
+            <a href="#services">Phone Reborn</a>
+            <a href="#results">Before &amp; after</a>
+          </div>
+          <div class="foot-col">
+            <h4>Company</h4>
+            <a href="#why">Why us</a>
+            <a href="#process">Our process</a>
+            <a href="#book">Book a visit</a>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bot">
+        <span>© <span id="yr"></span> Flipp Renew. All rights reserved.</span>
+        <span>Make your phone feel new again.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      // ---- hero animation: WebM for desktop Chrome/FF, sprite for iOS (all browsers) ----
+      var heroVid = document.getElementById('hero-vid');
+      var heroCvs = document.getElementById('hero-canvas');
+      var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      var supportsWebMAlpha = !isIOS && heroVid.canPlayType('video/webm; codecs="vp9"') !== '';
+
+      if (!supportsWebMAlpha) {
+        heroVid.classList.add('hidden');
+        heroCvs.classList.remove('hidden');
+        var ctx = heroCvs.getContext('2d');
+        var sprite = new Image();
+        sprite.src = 'hero-sprite.webp';
+        var cols = 10, rows = 10, total = 100;
+        var fw = 400, fh = 400;
+        var frame = 0;
+        var fps = 20, interval = 1000 / fps;
+        var lastTime = 0;
+
+        function animateSprite(ts) {
+          if (ts - lastTime >= interval) {
+            ctx.clearRect(0, 0, fw, fh);
+            var col = frame % cols;
+            var row = Math.floor(frame / cols);
+            ctx.drawImage(sprite, col * fw, row * fh, fw, fh, 0, 0, fw, fh);
+            frame = (frame + 1) % total;
+            lastTime = ts;
+          }
+          requestAnimationFrame(animateSprite);
+        }
+
+        sprite.onload = function () { requestAnimationFrame(animateSprite); };
+      }
+
+      // year
+      document.getElementById('yr').textContent = new Date().getFullYear();
+
+      // header scroll state
+      var hdr = document.getElementById('hdr');
+      var onScroll = function () { hdr.classList.toggle('scrolled', window.scrollY > 12); };
+      onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+
+      // mobile menu
+      var burger = document.getElementById('burger'), menu = document.getElementById('menu');
+      burger.addEventListener('click', function () {
+        var open = menu.classList.toggle('open');
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      menu.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') { menu.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); }
+      });
+
+      // scroll reveal
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+        }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+        document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+      } else {
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+      }
+
+      // before/after slider
+      var ba = document.getElementById('ba'), grip = document.getElementById('grip');
+      var dragging = false;
+      function setPos(pct) {
+        pct = Math.max(2, Math.min(98, pct));
+        ba.style.setProperty('--pos', pct + '%');
+        grip.setAttribute('aria-valuenow', Math.round(pct));
+      }
+      function fromEvent(clientX) {
+        var r = ba.getBoundingClientRect();
+        setPos(((clientX - r.left) / r.width) * 100);
+      }
+      ba.addEventListener('pointerdown', function (e) { dragging = true; fromEvent(e.clientX); });
+      window.addEventListener('pointermove', function (e) { if (dragging) fromEvent(e.clientX); });
+      window.addEventListener('pointerup', function () { dragging = false; });
+      grip.addEventListener('keydown', function (e) {
+        var cur = parseFloat(ba.style.getPropertyValue('--pos')) || 50;
+        if (e.key === 'ArrowLeft') { setPos(cur - 4); e.preventDefault(); }
+        if (e.key === 'ArrowRight') { setPos(cur + 4); e.preventDefault(); }
+      });
+
+      // booking form (no backend — client-side confirmation)
+      var submit = document.getElementById('submit'), msg = document.getElementById('formMsg');
+      submit.addEventListener('click', function () {
+        var name = document.getElementById('f-name').value.trim();
+        var phone = document.getElementById('f-phone').value.trim();
+        var device = document.getElementById('f-device').value.trim();
+        var service = document.getElementById('f-service').value;
+        if (!name || !phone) {
+          msg.textContent = 'Please add your name and a phone number so we can confirm your appointment.';
+          msg.classList.add('show'); return;
+        }
+        var text = 'Hi Flipp Renew! I\u2019d like to book an appointment.\n\n'
+          + 'Name: ' + name + '\n'
+          + 'Phone: ' + phone + '\n'
+          + (device ? 'Device: ' + device + '\n' : '')
+          + 'Service: ' + service;
+        var waUrl = 'https://wa.me/5978542711?text=' + encodeURIComponent(text);
+        window.open(waUrl, '_blank');
+        msg.textContent = 'Opening WhatsApp — we\u2019ll confirm your appointment shortly!';
+        msg.classList.add('show');
+      });
+    })();
+  </script>
+</body>
+
+</html>
