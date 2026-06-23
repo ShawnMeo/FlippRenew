@@ -1026,6 +1026,13 @@
       color: var(--mist-dim)
     }
 
+    
+    /* ============ LANGUAGE TOGGLE ============ */
+    .lang-toggle{display:flex;align-items:center;gap:0;border:1px solid var(--line);border-radius:100px;overflow:hidden;flex:none}
+    .lang-toggle button{background:none;border:0;color:var(--mist-dim);font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.06em;padding:.45em .75em;cursor:pointer;transition:background .25s,color .25s;line-height:1}
+    .lang-toggle button.active{background:var(--gold-grad);color:#1a1408}
+    .lang-toggle button:hover:not(.active){color:var(--white)}
+
     /* ============ REVEAL ============ */
     .reveal {
       opacity: 0;
@@ -1187,15 +1194,19 @@
         <span class="name">Flipp<span class="re">renew</span></span>
       </a>
       <nav class="menu" id="menu" aria-label="Primary">
-        <a class="btn btn-gold menu-cta" href="#book">Book a refresh</a>
-        <a href="#why">Why us</a>
-        <a href="#services">Services</a>
-        <a href="#results">Results</a>
-        <a href="#process">Process</a>
+        <a class="btn btn-gold menu-cta" href="#book" data-i18n="nav_book">Book a refresh</a>
+        <a href="#why" data-i18n="nav_why">Why us</a>
+        <a href="#services" data-i18n="nav_services">Services</a>
+        <a href="#results" data-i18n="nav_results">Results</a>
+        <a href="#process" data-i18n="nav_process">Process</a>
       </nav>
+      <div class="lang-toggle" aria-label="Language">
+        <button id="lang-nl" type="button" class="active">NL</button>
+        <button id="lang-en" type="button">EN</button>
+      </div>
       <div class="nav-cta">
-        <a class="btn btn-ghost" href="#services">View services</a>
-        <a class="btn btn-gold" href="#book">Book a refresh</a>
+        <a class="btn btn-ghost" href="#services" data-i18n="nav_view_services">View services</a>
+        <a class="btn btn-gold" href="#book" data-i18n="nav_book_cta">Book a refresh</a>
         <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
           <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M3 6h18M3 12h18M3 18h18" />
@@ -1212,12 +1223,11 @@
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="wrap hero-inner">
         <div class="hero-copy">
-          <span class="eyebrow reveal">Professional device restoration</span>
-          <h1 class="reveal">Make your phone<br>feel <span class="serif">new</span> again.</h1>
-          <p class="sub reveal">Premium detailing, battery and screen renewal, and performance care — designed to extend
-            the life of the device you already love.</p>
+          <span class="eyebrow reveal" data-i18n="hero_eyebrow">Professional device restoration</span>
+          <h1 class="reveal" data-i18n="hero_h1" data-i18n-html="1">Make your phone<br>feel <span class="serif">new</span> again.</h1>
+          <p class="sub reveal" data-i18n="hero_sub">Premium detailing, battery and screen renewal, and performance care — designed to extend the life of the device you already love.</p>
           <div class="hero-actions reveal">
-            <a class="btn btn-gold" href="#book">Book a device refresh
+            <a class="btn btn-gold" href="#book" data-i18n="hero_cta">Book a device refresh
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M3 8h10M9 4l4 4-4 4" />
               </svg></a>
@@ -1227,17 +1237,17 @@
             <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="8" cy="8" r="6.5" />
                 <path d="M8 4.5V8l2.5 1.5" />
-              </svg>Same-day service</span>
+              </svg><span data-i18n="trust_1">Same-day service</span></span>
             <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M8 1.5l5.5 2.5v4c0 3.4-2.4 5.6-5.5 6.5C4.9 13.6 2.5 11.4 2.5 8V4z" />
-              </svg>Quality parts</span>
+              </svg><span data-i18n="trust_2">Quality parts</span></span>
             <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M2.5 8.5l3.5 3.5 7.5-8" />
-              </svg>Honest advice</span>
+              </svg><span data-i18n="trust_3">Honest advice</span></span>
             <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="4" y="2" width="8" height="12" rx="2" />
                 <path d="M7 4h2" />
-              </svg>Professional care</span>
+              </svg><span data-i18n="trust_4">Professional care</span></span>
           </div>
         </div>
         <div class="device-stage" aria-hidden="true">
@@ -1255,11 +1265,9 @@
     <section class="why" id="why">
       <div class="wrap">
         <div class="sec-head reveal">
-          <span class="eyebrow">Why Flipp Renew</span>
-          <h2>Device care that respects<br>your time — and your wallet.</h2>
-          <p>We don't just repair devices. We restore them. From deep cleaning and battery renewal to screen work and
-            performance tuning, we help your phone look, feel and perform like new — without the cost of replacing it.
-          </p>
+          <span class="eyebrow" data-i18n="why_eyebrow">Why Flipp Renew</span>
+          <h2 data-i18n="why_h2" data-i18n-html="1">Device care that respects<br>your time — and your wallet.</h2>
+          <p data-i18n="why_p">We don't just repair devices. We restore them. From deep cleaning and battery renewal to screen work and performance tuning, we help your phone look, feel and perform like new — without the cost of replacing it.</p>
         </div>
         <div class="feature-grid">
           <div class="feature reveal">
@@ -1267,35 +1275,32 @@
                 <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z" />
                 <path d="M9 12l2 2 4-4" />
               </svg></div>
-            <h3>Professional device handling</h3>
-            <p>Your phone is treated like the valuable object it is — inspected, documented, and serviced with care from
-              check-in to return.</p>
+            <h3 data-i18n="feat1_h">Professional device handling</h3>
+            <p data-i18n="feat1_p">Your phone is treated like the valuable object it is — inspected, documented, and serviced with care from check-in to return.</p>
           </div>
           <div class="feature reveal">
             <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <circle cx="12" cy="12" r="9" />
                 <path d="M12 7v5l3.5 2" />
               </svg></div>
-            <h3>Built around your schedule</h3>
-            <p>Same-day turnaround on most services, so you're rarely without the device you rely on every day.</p>
+            <h3 data-i18n="feat2_h">Built around your schedule</h3>
+            <p><span data-i18n="feat2_p">Same-day turnaround on most services, so you're rarely without the device you rely on every day.</span></p>
           </div>
           <div class="feature reveal">
             <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z" />
                 <circle cx="12" cy="12" r="3" />
               </svg></div>
-            <h3>Results you can see &amp; feel</h3>
-            <p>Cleaner audio, faster response, a brighter screen, a battery that lasts. The difference is obvious the
-              moment you hold it.</p>
+            <h3 data-i18n="feat3_h">Results you can see &amp; feel</h3>
+            <p data-i18n="feat3_p">Cleaner audio, faster response, a brighter screen, a battery that lasts. The difference is obvious the moment you hold it.</p>
           </div>
           <div class="feature reveal">
             <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <path d="M12 3v18M5 8h14M7 21h10" />
                 <path d="M5 8l-2 5a4 4 0 008 0zM19 8l-2 5a4 4 0 008 0z" />
               </svg></div>
-            <h3>Honest advice. No pressure.</h3>
-            <p>If a renewal makes sense, we'll tell you. If it doesn't, we'll tell you that too. Always straight, never
-              a hard sell.</p>
+            <h3 data-i18n="feat4_h">Honest advice. No pressure.</h3>
+            <p data-i18n="feat4_p">If a renewal makes sense, we'll tell you. If it doesn't, we'll tell you that too. Always straight, never a hard sell.</p>
           </div>
         </div>
       </div>
@@ -1305,83 +1310,82 @@
     <section id="services">
       <div class="wrap">
         <div class="sec-head reveal">
-          <span class="eyebrow">Our services</span>
-          <h2>Three levels of renewal.<br>One feeling: <span class="serif">like new</span>.</h2>
-          <p>Start with a clean-up, or go all the way to a full restoration. Every tier ends with an inspection report
-            so you know exactly what was done.</p>
+          <span class="eyebrow" data-i18n="svc_eyebrow">Our services</span>
+          <h2 data-i18n="svc_h2" data-i18n-html="1">Three levels of renewal.<br>One feeling: <span class="serif">like new</span>.</h2>
+          <p data-i18n="svc_p">Start with a clean-up, or go all the way to a full restoration. Every tier ends with an inspection report so you know exactly what was done.</p>
         </div>
         <div class="tiers">
           <div class="tier reveal">
             <div class="tname"><b>Refresh</b></div>
-            <p class="tdesc">Premium detailing that restores the look, feel and hygiene of your device.</p>
-            <div class="price">from <b>SRD 300</b></div>
+            <p class="tdesc"><span data-i18n="t1_desc">Premium detailing that restores the look, feel and hygiene of your device.</span></p>
+            <div class="price"><span data-i18n="price_refresh" data-i18n-html="1">from <b>SRD 300</b></span></div>
             <ul>
               <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M3 9.5l3.5 3.5L15 5" />
-                </svg>Speaker &amp; mic cleaning</li>
+                </svg><span data-i18n="s_speaker">Speaker &amp; mic cleaning</span></li>
               <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M3 9.5l3.5 3.5L15 5" />
-                </svg>Charging port restoration</li>
+                </svg><span data-i18n="s_port">Charging port restoration</span></li>
               <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M3 9.5l3.5 3.5L15 5" />
-                </svg>Full exterior detailing</li>
+                </svg><span data-i18n="s_detail">Full exterior detailing</span></li>
               <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M3 9.5l3.5 3.5L15 5" />
-                </svg>Device sanitization</li>
+                </svg><span data-i18n="s_sanitize">Device sanitization</span></li>
               <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M3 9.5l3.5 3.5L15 5" />
-                </svg>Inspection report</li>
+                </svg><span data-i18n="s_report">Inspection report</span></li>
             </ul>
-            <a class="btn btn-ghost" href="#book">Choose Refresh</a>
+            <a class="btn btn-ghost" href="#book" data-i18n="choose_refresh">Choose Refresh</a>
           </div>
 
           <div class="tier feat reveal">
-            <span class="flag">Most popular</span>
+            <span class="flag" data-i18n="flag_popular">Most popular</span>
             <div class="tname"><b>Renew</b></div>
-            <p class="tdesc">Everything in Refresh, plus the care that brings performance back to life.</p>
+            <p class="tdesc"><span data-i18n="t2_desc">Everything in Refresh, plus the care that brings performance back to life.</span></p>
             <div class="price">priced after <b>inspection</b></div>
             <ul>
               <li class="inc"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M3 9.5l3.5 3.5L15 5" />
-                </svg>Everything in Refresh</li>
+                </svg><span data-i18n="s_inc_refresh">Everything in Refresh</span></li>
               <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M3 9.5l3.5 3.5L15 5" />
-                </svg>Premium screen protector</li>
+                </svg><span data-i18n="s_screen_prot">Premium screen protector</span></li>
               <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M3 9.5l3.5 3.5L15 5" />
-                </svg>Battery health analysis</li>
+                </svg><span data-i18n="s_battery_check">Battery health analysis</span></li>
               <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M3 9.5l3.5 3.5L15 5" />
-                </svg>Performance optimization</li>
+                </svg><span data-i18n="s_perf">Performance optimization</span></li>
               <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M3 9.5l3.5 3.5L15 5" />
-                </svg>Full device tune-up</li>
+                </svg><span data-i18n="s_tuneup">Full device tune-up</span></li>
             </ul>
-            <a class="btn btn-gold" href="#book">Choose Renew</a>
+            <a class="btn btn-gold" href="#book" data-i18n="choose_renew">Choose Renew</a>
           </div>
 
           <div class="tier reveal">
             <div class="tname"><b>Reborn</b></div>
-            <p class="tdesc">A complete restoration that brings your device as close to new as possible.</p>
+            <p class="tdesc"><span data-i18n="t3_desc">A complete restoration that brings your device as close to new as possible.</span></p>
             <div class="price">priced after <b>inspection</b></div>
             <ul>
               <li class="inc"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M3 9.5l3.5 3.5L15 5" />
-                </svg>Everything in Renew</li>
+                </svg><span data-i18n="s_inc_renew">Everything in Renew</span></li>
               <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M3 9.5l3.5 3.5L15 5" />
-                </svg>Battery replacement</li>
+                </svg><span data-i18n="s_battery_rep">Battery replacement</span></li>
               <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M3 9.5l3.5 3.5L15 5" />
-                </svg>Screen replacement</li>
+                </svg><span data-i18n="s_screen_rep">Screen replacement</span></li>
               <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M3 9.5l3.5 3.5L15 5" />
-                </svg>Housing restoration</li>
+                </svg><span data-i18n="s_housing">Housing restoration</span></li>
               <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M3 9.5l3.5 3.5L15 5" />
-                </svg>Major repair work</li>
+                </svg><span data-i18n="s_major">Major repair work</span></li>
             </ul>
-            <a class="btn btn-ghost" href="#book">Choose Reborn</a>
+            <a class="btn btn-ghost" href="#book" data-i18n="choose_reborn">Choose Reborn</a>
           </div>
         </div>
       </div>
@@ -1391,39 +1395,37 @@
     <section class="results" id="results">
       <div class="wrap ba-row">
         <div class="ba-copy reveal">
-          <span class="eyebrow">Real results</span>
-          <h2>Why replace it when<br>you can <span class="serif">renew</span> it?</h2>
-          <p>Most people think a tired phone means a new phone. Usually, it just means it hasn't been cared for. Drag
-            the handle to see the difference restoration makes.</p>
+          <span class="eyebrow" data-i18n="res_eyebrow">Real results</span>
+          <h2 data-i18n="res_h2" data-i18n-html="1">Why replace it when<br>you can <span class="serif">renew</span> it?</h2>
+          <p data-i18n="res_p">Most people think a tired phone means a new phone. Usually, it just means it hasn't been cared for. Drag the handle to see the difference restoration makes.</p>
           <div class="chips">
             <span class="chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="8" cy="8" r="6" />
-              </svg>Speaker restoration</span>
+              </svg><span data-i18n="chip_speaker">Speaker restoration</span></span>
             <span class="chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="8" cy="8" r="6" />
-              </svg>Charging port</span>
+              </svg><span data-i18n="chip_port">Charging port</span></span>
             <span class="chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="8" cy="8" r="6" />
-              </svg>Screen renewal</span>
+              </svg><span data-i18n="chip_screen">Screen renewal</span></span>
             <span class="chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="8" cy="8" r="6" />
-              </svg>Battery renewal</span>
+              </svg><span data-i18n="chip_battery">Battery renewal</span></span>
             <span class="chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="8" cy="8" r="6" />
-              </svg>Full detailing</span>
+              </svg><span data-i18n="chip_detail">Full detailing</span></span>
           </div>
-          <p class="note">Real device photos — more transformations added as devices are serviced.
-          </p>
+          <p class="note" data-i18n="res_note">Real device photos — more transformations added as devices are serviced.</p>
         </div>
 
         <div class="ba reveal" id="ba" style="--pos:50%">
           <div class="pane after">
             <img src="ba-after.jpg" alt="Device after restoration">
-            <span class="lbl">After</span>
+            <span class="lbl" data-i18n="ba_after">After</span>
           </div>
           <div class="pane before">
             <img src="ba-before.png" alt="Device before restoration">
-            <span class="lbl">Before</span>
+            <span class="lbl" data-i18n="ba_before">Before</span>
           </div>
           <div class="handle"></div>
           <div class="grip" id="grip" role="slider" tabindex="0" aria-label="Before and after comparison"
@@ -1440,46 +1442,45 @@
     <section id="process">
       <div class="wrap">
         <div class="sec-head reveal">
-          <span class="eyebrow">The experience</span>
-          <h2>A service that feels<br>more like a spa than a shop.</h2>
-          <p>Every device follows the same careful path — closer to a luxury watch servicing than a corner repair
-            counter.</p>
+          <span class="eyebrow" data-i18n="proc_eyebrow">The experience</span>
+          <h2 data-i18n="proc_h2" data-i18n-html="1">A service that feels<br>more like a spa than a shop.</h2>
+          <p data-i18n="proc_p">Every device follows the same careful path — closer to a luxury watch servicing than a corner repair counter.</p>
         </div>
         <div class="steps">
           <div class="step reveal">
             <div class="num">01</div>
-            <h3>Check-in</h3>
-            <p>Your device is logged, and your concerns are noted before anything is touched.</p>
+            <h3 data-i18n="step1_h">Check-in</h3>
+            <p data-i18n="step1_p">Your device is logged, and your concerns are noted before anything is touched.</p>
           </div>
           <div class="step reveal">
             <div class="num">02</div>
-            <h3>Inspection</h3>
-            <p>A full diagnostic of screen, battery, ports, audio and housing.</p>
+            <h3 data-i18n="step2_h">Inspection</h3>
+            <p data-i18n="step2_p">A full diagnostic of screen, battery, ports, audio and housing.</p>
           </div>
           <div class="step reveal">
             <div class="num">03</div>
-            <h3>Before photos</h3>
-            <p>We document the starting condition so the transformation is undeniable.</p>
+            <h3 data-i18n="step3_h">Before photos</h3>
+            <p data-i18n="step3_p">We document the starting condition so the transformation is undeniable.</p>
           </div>
           <div class="step reveal">
             <div class="num">04</div>
-            <h3>Restoration</h3>
-            <p>Your chosen service is carried out with professional tools and quality parts.</p>
+            <h3 data-i18n="step4_h">Restoration</h3>
+            <p data-i18n="step4_p">Your chosen service is carried out with professional tools and quality parts.</p>
           </div>
           <div class="step reveal">
             <div class="num">05</div>
-            <h3>Quality control</h3>
-            <p>Every function is tested and re-tested before the device leaves the bench.</p>
+            <h3 data-i18n="step5_h">Quality control</h3>
+            <p data-i18n="step5_p">Every function is tested and re-tested before the device leaves the bench.</p>
           </div>
           <div class="step reveal">
             <div class="num">06</div>
-            <h3>Device report</h3>
-            <p>A clear summary of what we found, what we did, and what to watch.</p>
+            <h3 data-i18n="step6_h">Device report</h3>
+            <p data-i18n="step6_p">A clear summary of what we found, what we did, and what to watch.</p>
           </div>
           <div class="step reveal">
             <div class="num">07</div>
-            <h3>Return</h3>
-            <p>You collect a device that looks, feels and performs like new again.</p>
+            <h3 data-i18n="step7_h">Return</h3>
+            <p data-i18n="step7_p">You collect a device that looks, feels and performs like new again.</p>
           </div>
         </div>
       </div>
@@ -1490,11 +1491,14 @@
       <div class="wrap">
         <div class="book-card reveal">
           <div class="book-info">
-            <span class="eyebrow">Book your visit</span>
-            <h2>Restore. Refresh.<br><span class="serif">Reconnect.</span></h2>
-            <p>Tell us about your device and we'll confirm your appointment and a no-obligation estimate. Most refreshes
-              are done the same day.</p>
+            <span class="eyebrow" data-i18n="book_eyebrow">Book your visit</span>
+            <h2 data-i18n="book_h2" data-i18n-html="1">Restore. Refresh.<br><span class="serif">Reconnect.</span></h2>
+            <p data-i18n="book_p">Tell us about your device and we'll confirm your appointment and a no-obligation estimate. Most refreshes are done the same day.</p>
             <!-- TODO: replace with real Flipp Renew contact details -->
+            <div class="book-urgency" id="book-urgency">
+              <span data-i18n="book_urgency">⚡ Zelfde dag service beschikbaar</span>
+              <small data-i18n="book_response">Gemiddelde reactietijd: minder dan 15 minuten.</small>
+            </div>
             <div class="contact-line"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
                 <path d="M4 4h12l-1 5a8 8 0 01-5 5 8 8 0 01-5-5z" />
                 <path d="M2 18a8 8 0 0116 0" />
@@ -1508,13 +1512,13 @@
               </svg>hello@flipprenew.sr</div>
           </div>
           <div class="form">
-            <div class="field"><label for="f-name">Your name</label><input id="f-name" type="text"
+            <div class="field"><label for="f-name" data-i18n="form_name">Your name</label><input id="f-name" type="text"
                 placeholder="Full name" autocomplete="name"></div>
-            <div class="field"><label for="f-phone">Phone / WhatsApp</label><input id="f-phone" type="tel"
+            <div class="field"><label for="f-phone" data-i18n="form_phone">Phone / WhatsApp</label><input id="f-phone" type="tel"
                 placeholder="+597 ..." autocomplete="tel"></div>
-            <div class="field"><label for="f-device">Device</label><input id="f-device" type="text"
+            <div class="field"><label for="f-device" data-i18n="form_device">Device</label><input id="f-device" type="text"
                 placeholder="e.g. iPhone 13, Samsung S22"></div>
-            <div class="field"><label for="f-service">Service</label>
+            <div class="field"><label for="f-service" data-i18n="form_service">Service</label>
               <select id="f-service">
                 <option>Phone Refresh — detailing</option>
                 <option>Phone Renew — performance care</option>
@@ -1522,7 +1526,7 @@
                 <option>Not sure — recommend for me</option>
               </select>
             </div>
-            <button class="btn btn-gold" id="submit" type="button">Book via WhatsApp
+            <button class="btn btn-gold" id="submit" type="button" data-i18n="form_submit">Book via WhatsApp
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M3 8h10M9 4l4 4-4 4" />
               </svg></button>
@@ -1547,29 +1551,28 @@
             </svg>
             <span class="name">Flipp<span class="re">renew</span></span>
           </a>
-          <div class="tag">Restore. Refresh. Reconnect.</div>
-          <p>Premium device restoration in Suriname. Before you spend on a new phone, let us renew the one you already
-            love.</p>
+          <div class="tag" data-i18n="foot_tag">Restore. Refresh. Reconnect.</div>
+          <p data-i18n="foot_p">Premium device restoration in Suriname. Before you spend on a new phone, let us renew the one you already love.</p>
         </div>
         <div class="foot-cols">
           <div class="foot-col">
-            <h4>Services</h4>
-            <a href="#services">Phone Refresh</a>
-            <a href="#services">Phone Renew</a>
-            <a href="#services">Phone Reborn</a>
-            <a href="#results">Before &amp; after</a>
+            <h4 data-i18n="foot_services">Services</h4>
+            <a href="#services" data-i18n="foot_refresh">Phone Refresh</a>
+            <a href="#services" data-i18n="foot_renew">Phone Renew</a>
+            <a href="#services" data-i18n="foot_reborn">Phone Reborn</a>
+            <a href="#results" data-i18n="foot_ba">Before &amp; after</a>
           </div>
           <div class="foot-col">
-            <h4>Company</h4>
-            <a href="#why">Why us</a>
-            <a href="#process">Our process</a>
-            <a href="#book">Book a visit</a>
+            <h4 data-i18n="foot_company">Company</h4>
+            <a href="#why" data-i18n="foot_why">Why us</a>
+            <a href="#process" data-i18n="foot_process">Our process</a>
+            <a href="#book" data-i18n="foot_book">Book a visit</a>
           </div>
         </div>
       </div>
       <div class="foot-bot">
         <span>© <span id="yr"></span> Flipp Renew. All rights reserved.</span>
-        <span>Make your phone feel new again.</span>
+        <span data-i18n="foot_slogan">Make your phone feel new again.</span>
       </div>
     </div>
   </footer>
@@ -1681,6 +1684,329 @@
         msg.textContent = 'Opening WhatsApp — we\u2019ll confirm your appointment shortly!';
         msg.classList.add('show');
       });
+
+
+      // ═══════════════════════════════════════
+      // i18n — Language toggle (EN / NL)
+      // Each language is a SEPARATE object.
+      // Edit NL strings freely without affecting EN.
+      // ═══════════════════════════════════════
+
+      var LANG = {
+
+        // ╔══════════════════════════════════════╗
+        // ║         ENGLISH (default)            ║
+        // ╚══════════════════════════════════════╝
+        en: {
+          // nav
+          nav_why: "Why us",
+          nav_services: "Services",
+          nav_results: "Results",
+          nav_process: "Process",
+          nav_book: "Book a refresh",
+          nav_view_services: "View services",
+          nav_book_cta: "Book a refresh",
+
+          // hero
+          hero_eyebrow: "Professional device restoration",
+          hero_h1: 'Make your phone<br>feel <span class="serif">new</span> again.',
+          hero_sub: "Premium detailing, battery and screen renewal, and performance care — designed to extend the life of the device you already love.",
+          hero_cta: "Book a device refresh",
+          trust_1: "Same-day service",
+          trust_2: "Quality parts",
+          trust_3: "Honest advice",
+          trust_4: "Professional care",
+
+          // why
+          why_eyebrow: "Why Flipp Renew",
+          why_h2: 'Device care that respects<br>your time — and your wallet.',
+          why_p: "We don\u2019t just repair devices. We restore them. From deep cleaning and battery renewal to screen work and performance tuning, we help your phone look, feel and perform like new — without the cost of replacing it.",
+          feat1_h: "Professional device handling",
+          feat1_p: "Your phone is treated like the valuable object it is — inspected, documented, and serviced with care from check-in to return.",
+          feat2_h: "Built around your schedule",
+          feat2_p: "Same-day turnaround on most services, so you\u2019re rarely without the device you rely on every day.",
+          feat3_h: "Results you can see & feel",
+          feat3_p: "Cleaner audio, faster response, a brighter screen, a battery that lasts. The difference is obvious the moment you hold it.",
+          feat4_h: "Honest advice. No pressure.",
+          feat4_p: "If a renewal makes sense, we\u2019ll tell you. If it doesn\u2019t, we\u2019ll tell you that too. Always straight, never a hard sell.",
+
+          // services
+          svc_eyebrow: "Our services",
+          svc_h2: 'Three levels of renewal.<br>One feeling: <span class="serif">like new</span>.',
+          svc_p: "Start with a clean-up, or go all the way to a full restoration. Every tier ends with an inspection report so you know exactly what was done.",
+          t1_desc: "Premium detailing that restores the look, feel and hygiene of your device.",
+          t2_desc: "Everything in Refresh, plus the care that brings performance back to life.",
+          t3_desc: "A complete restoration that brings your device as close to new as possible.",
+          flag_popular: "Most popular",
+          price_refresh: 'from <b>SRD 300</b>',
+          s_speaker: "Speaker & mic cleaning",
+          s_port: "Charging port restoration",
+          s_detail: "Full exterior detailing",
+          s_sanitize: "Device sanitization",
+          s_report: "Inspection report",
+          s_inc_refresh: "Everything in Refresh",
+          s_screen_prot: "Premium screen protector",
+          s_battery_check: "Battery health analysis",
+          s_perf: "Performance optimization",
+          s_tuneup: "Full device tune-up",
+          s_inc_renew: "Everything in Renew",
+          s_battery_rep: "Battery replacement",
+          s_screen_rep: "Screen replacement",
+          s_housing: "Housing restoration",
+          s_major: "Major repair work",
+          choose_refresh: "Choose Refresh",
+          choose_renew: "Choose Renew",
+          choose_reborn: "Choose Reborn",
+
+          // results
+          res_eyebrow: "Real results",
+          res_h2: 'Why replace it when<br>you can <span class="serif">renew</span> it?',
+          res_p: "Most people think a tired phone means a new phone. Usually, it just means it hasn\u2019t been cared for. Drag the handle to see the difference restoration makes.",
+          chip_speaker: "Speaker restoration",
+          chip_port: "Charging port",
+          chip_screen: "Screen renewal",
+          chip_battery: "Battery renewal",
+          chip_detail: "Full detailing",
+          res_note: "Real device photos — more transformations added as devices are serviced.",
+          ba_after: "After",
+          ba_before: "Before",
+
+          // process
+          proc_eyebrow: "The experience",
+          proc_h2: 'A service that feels<br>more like a spa than a shop.',
+          proc_p: "Every device follows the same careful path — closer to a luxury watch servicing than a corner repair counter.",
+          step1_h: "Check-in", step1_p: "Your device is logged, and your concerns are noted before anything is touched.",
+          step2_h: "Inspection", step2_p: "A full diagnostic of screen, battery, ports, audio and housing.",
+          step3_h: "Before photos", step3_p: "We document the starting condition so the transformation is undeniable.",
+          step4_h: "Restoration", step4_p: "Your chosen service is carried out with professional tools and quality parts.",
+          step5_h: "Quality control", step5_p: "Every function is tested and re-tested before the device leaves the bench.",
+          step6_h: "Device report", step6_p: "A clear summary of what we found, what we did, and what to watch.",
+          step7_h: "Return", step7_p: "You collect a device that looks, feels and performs like new again.",
+
+          // book
+          book_eyebrow: "Book your visit",
+          book_h2: 'Restore. Refresh.<br><span class="serif">Reconnect.</span>',
+          book_p: "Tell us about your device and we\u2019ll confirm your appointment and a no-obligation estimate. Most refreshes are done the same day.",
+          form_name: "Your name",
+          form_phone: "Phone / WhatsApp",
+          form_device: "Device",
+          form_service: "Service",
+          form_submit: "Book via WhatsApp",
+          form_opt1: "Phone Refresh — detailing",
+          form_opt2: "Phone Renew — performance care",
+          form_opt3: "Phone Reborn — full restoration",
+          form_opt4: "Not sure — recommend for me",
+          form_placeholder_name: "Full name",
+          form_placeholder_phone: "+597 ...",
+          form_placeholder_device: "e.g. iPhone 13, Samsung S22",
+          form_error: "Please add your name and a phone number so we can confirm your appointment.",
+          form_success: "Opening WhatsApp — we\u2019ll confirm your appointment shortly!",
+          wa_intro: "Hi Flipp Renew! I\u2019d like to book an appointment.",
+
+          // footer
+          foot_tag: "Restore. Refresh. Reconnect.",
+          foot_p: "Premium device restoration in Suriname. Before you spend on a new phone, let us renew the one you already love.",
+          foot_services: "Services",
+          foot_company: "Company",
+          foot_refresh: "Phone Refresh",
+          foot_renew: "Phone Renew",
+          foot_reborn: "Phone Reborn",
+          foot_ba: "Before & after",
+          foot_why: "Why us",
+          foot_process: "Our process",
+          foot_book: "Book a visit",
+          foot_slogan: "Make your phone feel new again."
+        },
+
+
+        // ╔══════════════════════════════════════╗
+        // ║       NEDERLANDS / DUTCH              ║
+        // ║  Edit these freely — EN is separate   ║
+        // ╚══════════════════════════════════════╝
+        nl: {
+          // nav
+          nav_why: "Waarom wij",
+          nav_services: "Diensten",
+          nav_results: "Resultaten",
+          nav_process: "Werkwijze",
+          nav_book: "Boek een Refresh",
+          nav_view_services: "Bekijk diensten",
+          nav_book_cta: "Boek een Refresh",
+
+          // hero
+          hero_eyebrow: "Professionele telefoonrestauratie",
+          hero_h1: 'Koop nog geen nieuwe telefoon.',
+          hero_sub: "Herstel je batterij, maak je speakers weer helder, vervang beschadigde schermen en laat je telefoon weer als nieuw aanvoelen — voor een fractie van de prijs van een nieuwe.",
+          hero_cta: "Vraag een gratis offerte aan",
+          trust_1: "Zelfde dag service",
+          trust_2: "Kwaliteitsonderdelen",
+          trust_3: "Eerlijk advies",
+          trust_4: "Professionele behandeling",
+
+          // why
+          why_eyebrow: "Waarom Flipp Renew",
+          why_h2: 'Zorg voor je telefoon die je tijd én je portemonnee respecteert.',
+          why_p: "Wij repareren telefoons niet alleen. Wij geven ze een tweede leven. Van grondige reiniging en batterijvernieuwing tot schermreparaties en prestatie-optimalisatie: wij zorgen ervoor dat jouw telefoon er weer als nieuw uitziet, aanvoelt en presteert — zonder de kosten van een nieuwe.",
+          feat1_h: "Professionele behandeling",
+          feat1_p: "Je telefoon wordt behandeld alsof hij van onszelf is.",
+          feat2_h: "Past in jouw schema",
+          feat2_p: "De meeste diensten zijn dezelfde dag klaar.",
+          feat3_h: "Resultaten die je ziet én voelt",
+          feat3_p: "Helderder geluid, snellere respons, een feller scherm, een batterij die meegaat. Het verschil is direct voelbaar.",
+          feat4_h: "Eerlijk advies. Geen druk.",
+          feat4_p: "Als vernieuwing zinvol is, zeggen we het. Als dat niet zo is, ook. Altijd recht door zee, nooit opdringerig.",
+
+          // services
+          svc_eyebrow: "Onze diensten",
+          svc_h2: 'Drie niveaus van vernieuwing.<br>Eén gevoel: <span class="serif">als nieuw</span>.',
+          svc_p: "Begin met een opfrisbeurt of ga voor een volledige restauratie. Elk niveau eindigt met een inspectierapport zodat je precies weet wat er is gedaan.",
+          t1_desc: "Premium reiniging die het uiterlijk, gevoel en de hygiëne van je telefoon herstelt.",
+          t2_desc: "Alles van Refresh, plus extra zorg die je telefoon weer topprestaties geeft.",
+          t3_desc: "Een complete restauratie die je telefoon zo dicht mogelijk bij nieuw brengt.",
+          flag_popular: "Meest gekozen",
+          price_refresh: 'vanaf <b>SRD 300</b>',
+          s_speaker: "Reiniging van speaker en microfoon",
+          s_port: "Herstel van oplaadpoort",
+          s_detail: "Volledige buitenreiniging",
+          s_sanitize: "Desinfectie van toestel",
+          s_report: "Inspectierapport",
+          s_inc_refresh: "Alles van Refresh",
+          s_screen_prot: "Premium screenprotector",
+          s_battery_check: "Analyse van batterijgezondheid",
+          s_perf: "Prestatie-optimalisatie",
+          s_tuneup: "Volledige optimalisatie",
+          s_inc_renew: "Alles van Renew",
+          s_battery_rep: "Batterij vervangen",
+          s_screen_rep: "Scherm vervangen",
+          s_housing: "Behuizing herstellen",
+          s_major: "Grote reparaties",
+          choose_refresh: "Kies Refresh",
+          choose_renew: "Kies Renew",
+          choose_reborn: "Kies Reborn",
+
+          // results
+          res_eyebrow: "Echte resultaten",
+          res_h2: 'Waarom vervangen als je ook kunt vernieuwen?',
+          res_p: "Veel mensen denken dat een trage of versleten telefoon vervangen moet worden. Meestal heeft hij gewoon de juiste zorg nodig.",
+          chip_speaker: "Speaker herstel",
+          chip_port: "Oplaadpoort",
+          chip_screen: "Scherm vernieuwing",
+          chip_battery: "Batterij vernieuwing",
+          chip_detail: "Volledige detailing",
+          res_note: "Echte foto’s — meer transformaties worden toegevoegd naarmate toestellen worden behandeld.",
+          ba_after: "Na",
+          ba_before: "Voor",
+
+          // process
+          proc_eyebrow: "De ervaring",
+          proc_h2: 'Een service die meer voelt<br>als een spa dan een reparatiewinkel.',
+          proc_p: "Elk toestel volgt hetzelfde zorgvuldige pad — dichter bij een luxe horlogeservice dan een reparatiebalie op de hoek.",
+          step1_h: "Inname", step1_p: "Je toestel wordt geregistreerd en je wensen worden genoteerd voordat er iets wordt aangeraakt.",
+          step2_h: "Inspectie", step2_p: "Een volledige diagnose van scherm, batterij, poorten, audio en behuizing.",
+          step3_h: "Foto’s vooraf", step3_p: "We documenteren de beginstaat zodat de transformatie onmiskenbaar is.",
+          step4_h: "Restauratie", step4_p: "De gekozen dienst wordt uitgevoerd met professioneel gereedschap en kwaliteitsonderdelen.",
+          step5_h: "Kwaliteitscontrole", step5_p: "Elke functie wordt getest en hertest voordat het toestel de werkbank verlaat.",
+          step6_h: "Toestelrapport", step6_p: "Een helder overzicht van wat we vonden, wat we deden en waar je op moet letten.",
+          step7_h: "Ophalen", step7_p: "Je haalt een toestel op dat eruitziet, aanvoelt en presteert als nieuw.",
+
+          // book
+          book_eyebrow: "Boek je afspraak",
+          book_h2: 'Herstel. Vernieuw.<br><span class="serif">Geniet opnieuw.</span>',
+          book_p: "Stuur ons een bericht via WhatsApp en ontvang binnen enkele minuten een gratis offerte.",
+          book_urgency: "⚡ Zelfde dag service beschikbaar",
+          book_response: "Gemiddelde reactietijd: minder dan 15 minuten.",
+          form_name: "Je naam",
+          form_phone: "Telefoon / WhatsApp",
+          form_device: "Toestel",
+          form_service: "Dienst",
+          form_submit: "Vraag een gratis offerte aan",
+          form_opt1: "Phone Refresh — reiniging",
+          form_opt2: "Phone Renew — prestatiezorg",
+          form_opt3: "Phone Reborn — volledige restauratie",
+          form_opt4: "Niet zeker — adviseer mij",
+          form_placeholder_name: "Volledige naam",
+          form_placeholder_phone: "+597 ...",
+          form_placeholder_device: "bijv. iPhone 13, Samsung S22",
+          form_error: "Vul je naam en telefoonnummer in zodat we je afspraak kunnen bevestigen.",
+          form_success: "WhatsApp wordt geopend — we bevestigen zo snel mogelijk!",
+          wa_intro: "Hallo Flipp Renew! Ik wil graag een gratis offerte aanvragen.",
+
+          // footer
+          foot_tag: "Herstel. Vernieuw. Verbind opnieuw.",
+          foot_p: "Premium telefoonrestauratie in Suriname. Voordat je een nieuwe telefoon koopt, laat ons eerst de telefoon vernieuwen die je al hebt.",
+          foot_services: "Diensten",
+          foot_company: "Bedrijf",
+          foot_refresh: "Phone Refresh",
+          foot_renew: "Phone Renew",
+          foot_reborn: "Phone Reborn",
+          foot_ba: "Voor & na",
+          foot_why: "Waarom wij",
+          foot_process: "Ons proces",
+          foot_book: "Boek een bezoek",
+          foot_slogan: "Laat je telefoon weer nieuw aanvoelen."
+        }
+      };
+
+      // ── Language engine ──
+      var currentLang = localStorage.getItem('fr-lang') || 'nl';
+
+      function setLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('fr-lang', lang);
+        document.documentElement.lang = lang;
+
+        // update toggle buttons
+        document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+        document.getElementById('lang-nl').classList.toggle('active', lang === 'nl');
+
+        var strings = LANG[lang];
+
+        // swap all tagged elements
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+          var key = el.getAttribute('data-i18n');
+          if (strings[key] !== undefined) {
+            if (el.hasAttribute('data-i18n-html')) {
+              el.innerHTML = strings[key];
+            } else {
+              el.textContent = strings[key];
+            }
+          }
+        });
+
+        // swap form placeholders
+        var fn = document.getElementById('f-name');
+        var fp = document.getElementById('f-phone');
+        var fd = document.getElementById('f-device');
+        if (fn) fn.placeholder = strings.form_placeholder_name || '';
+        if (fp) fp.placeholder = strings.form_placeholder_phone || '';
+        if (fd) fd.placeholder = strings.form_placeholder_device || '';
+
+        // swap select options
+        var sel = document.getElementById('f-service');
+        if (sel && sel.options.length >= 4) {
+          sel.options[0].textContent = strings.form_opt1 || '';
+          sel.options[1].textContent = strings.form_opt2 || '';
+          sel.options[2].textContent = strings.form_opt3 || '';
+          sel.options[3].textContent = strings.form_opt4 || '';
+        }
+
+        // show/hide urgency block (NL only)
+        var urgency = document.getElementById('book-urgency');
+        if (urgency) urgency.style.display = lang === 'nl' ? 'flex' : 'none';
+
+        // update page title
+        document.title = lang === 'nl'
+          ? 'Flipp Renew — Laat Je Telefoon Weer Nieuw Aanvoelen'
+          : 'Flipp Renew — Make Your Phone Feel New Again';
+      }
+
+      // bind toggle buttons
+      document.getElementById('lang-en').addEventListener('click', function() { setLang('en'); });
+      document.getElementById('lang-nl').addEventListener('click', function() { setLang('nl'); });
+
+      // apply saved language on load
+      setLang(currentLang);
+
     })();
   </script>
 </body>
