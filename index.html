@@ -842,7 +842,7 @@
 
     .book-card {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 0;
       border: 1px solid var(--line);
       border-radius: 24px;
@@ -852,7 +852,7 @@
 
     .book-info {
       padding: 48px 44px;
-      border-right: 1px solid var(--line-soft)
+      max-width: 640px
     }
 
     .book-info h2 {
@@ -1504,31 +1504,11 @@
                 <path d="M4 4h12l-1 5a8 8 0 01-5 5 8 8 0 01-5-5z" />
                 <path d="M2 18a8 8 0 0116 0" />
               </svg>Paramaribo, Suriname</div>
-            <a class="contact-line" href="https://wa.me/5978245614" target="_blank" rel="noopener" style="text-decoration:none"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M4 4h4l1.5 4-2 1.5a9 9 0 004 4l1.5-2 4 1.5v4a1 1 0 01-1 1A14 14 0 013 5a1 1 0 011-1z" />
+            <a class="contact-line" href="https://wa.me/5978245614" target="_blank" rel="noopener" style="text-decoration:none"><svg viewBox="0 0 24 24" fill="currentColor" style="color:var(--gold)">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.855L.057 23.428a.5.5 0 00.609.61l5.627-1.463A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.7-.504-5.253-1.38l-.372-.214-3.892 1.013 1.034-3.784-.228-.38A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
               </svg>+597 824 5614</a>
           </div>
-          <div class="form">
-            <div class="field"><label for="f-name" data-i18n="form_name">Your name</label><input id="f-name" type="text"
-                placeholder="Full name" autocomplete="name"></div>
-            <div class="field"><label for="f-phone" data-i18n="form_phone">Phone / WhatsApp</label><input id="f-phone" type="tel"
-                placeholder="+597 ..." autocomplete="tel"></div>
-            <div class="field"><label for="f-device" data-i18n="form_device">Device</label><input id="f-device" type="text"
-                placeholder="e.g. iPhone 13, Samsung S22"></div>
-            <div class="field"><label for="f-service" data-i18n="form_service">Service</label>
-              <select id="f-service">
-                <option>Phone Refresh — detailing</option>
-                <option>Phone Renew — performance care</option>
-                <option>Phone Reborn — full restoration</option>
-                <option>Not sure — recommend for me</option>
-              </select>
-            </div>
-            <button class="btn btn-gold" id="submit" type="button" data-i18n="form_submit">Book via WhatsApp
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 8h10M9 4l4 4-4 4" />
-              </svg></button>
-            <div class="form-msg" id="formMsg"></div>
-          </div>
+
         </div>
       </div>
     </section>
@@ -1660,27 +1640,6 @@
         if (e.key === 'ArrowRight') { setPos(cur + 4); e.preventDefault(); }
       });
 
-      // booking form (no backend — client-side confirmation)
-      var submit = document.getElementById('submit'), msg = document.getElementById('formMsg');
-      submit.addEventListener('click', function () {
-        var name = document.getElementById('f-name').value.trim();
-        var phone = document.getElementById('f-phone').value.trim();
-        var device = document.getElementById('f-device').value.trim();
-        var service = document.getElementById('f-service').value;
-        if (!name || !phone) {
-          msg.textContent = 'Please add your name and a phone number so we can confirm your appointment.';
-          msg.classList.add('show'); return;
-        }
-        var text = 'Hi Flipp Renew! I\u2019d like to book an appointment.\n\n'
-          + 'Name: ' + name + '\n'
-          + 'Phone: ' + phone + '\n'
-          + (device ? 'Device: ' + device + '\n' : '')
-          + 'Service: ' + service;
-        var waUrl = 'https://wa.me/5978245614?text=' + encodeURIComponent(text);
-        window.open(waUrl, '_blank');
-        msg.textContent = 'Opening WhatsApp — we\u2019ll confirm your appointment shortly!';
-        msg.classList.add('show');
-      });
 
 
       // ═══════════════════════════════════════
@@ -1970,22 +1929,7 @@
           }
         });
 
-        // swap form placeholders
-        var fn = document.getElementById('f-name');
-        var fp = document.getElementById('f-phone');
-        var fd = document.getElementById('f-device');
-        if (fn) fn.placeholder = strings.form_placeholder_name || '';
-        if (fp) fp.placeholder = strings.form_placeholder_phone || '';
-        if (fd) fd.placeholder = strings.form_placeholder_device || '';
 
-        // swap select options
-        var sel = document.getElementById('f-service');
-        if (sel && sel.options.length >= 4) {
-          sel.options[0].textContent = strings.form_opt1 || '';
-          sel.options[1].textContent = strings.form_opt2 || '';
-          sel.options[2].textContent = strings.form_opt3 || '';
-          sel.options[3].textContent = strings.form_opt4 || '';
-        }
 
         // show/hide urgency block (NL only)
         var urgency = document.getElementById('book-urgency');
